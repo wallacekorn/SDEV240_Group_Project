@@ -49,6 +49,7 @@ namespace Materials_List_Estimator
         private void ClearGrid_Click(object sender, EventArgs e)
         {
             // clear table values
+            this.dataGridView1.Rows.Clear();
         }
 
         private void FontMenuSubgroup_Click(object sender, EventArgs e)
