@@ -40,6 +40,11 @@ namespace Materials_List_Estimator
 
         }
 
+        private void compareButton_Click(object sender, EventArgs e) 
+        { 
+        
+        }
+
         private void OpenFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog anOpenFileDialog = new OpenFileDialog(); // opens the 'select a file' window
@@ -79,54 +84,21 @@ namespace Materials_List_Estimator
 
         private void FontMenuSubgroup_Click(object sender, EventArgs e)
         {
-            FontDialog fontDialog = new FontDialog();
+            FontDialog aFontDialog = new FontDialog(); // Creates/Opens the font selection menu
 
-            if (fontDialog.ShowDialog() != DialogResult.Cancel)
+            if (aFontDialog.ShowDialog() != DialogResult.Cancel)  // If operation is not cancelled
             {
-                // Get the selected font
-                Font selectedFont = fontDialog.Font;
+                this.Font = aFontDialog.Font; // then it assigns the font to the form
 
-                // Set constraints for the font size
-                float minFontSize = 8.0f;
-                float maxFontSize = 14.0f;
 
-                // Apply constraints to font size
-                float constrainedFontSize = Math.Max(minFontSize, Math.Min(selectedFont.Size, maxFontSize));
-                selectedFont = new Font(selectedFont.FontFamily, constrainedFontSize, selectedFont.Style);
-
-                this.Font = selectedFont;
+                //need to add constraints to change the font to a maximum number so the layout doesnt break - or remove the option
             }
+
         }
-
-
-        private bool isDarkMode = false; // Initialize with light mode
-
         private void DarkModeToggle_Click(object sender, EventArgs e)
         {
-            isDarkMode = !isDarkMode;
-            ApplyDarkMode();
-        }
 
-        private void ApplyDarkMode()
-        {
-            if (isDarkMode)
-            {
-                // Dark Mode
-                this.BackColor = Color.FromArgb(80, 80, 80); // Set the background color to a dark shade
-                this.ForeColor = Color.White; // Set text and foreground color to a light color
-                theDataGridView.BackgroundColor = Color.FromArgb(50, 50, 50);
-                theDataGridView.ForeColor = Color.LightSlateGray;
-            }
-            else
-            {
-                // Light Mode
-                this.BackColor = Color.White; // Set the background color back to light
-                this.ForeColor = Color.Black; // Set text and foreground color back to dark
-                theDataGridView.BackgroundColor = this.BackColor;
-                theDataGridView.ForeColor = this.ForeColor;
-            }
         }
-
 
         public static void SaveToCSV(DataGridView theDataGridView, string fileName)
         {
@@ -170,14 +142,14 @@ namespace Materials_List_Estimator
             double accumulatedTotal = 0;
             for (int i = 0; i < theDataGridView.Rows.Count; ++i)
             {
-                accumulatedTotal += Convert.ToDouble(theDataGridView.Rows[i].Cells["entryCostColumn"].Value);
+                var cellValue = theDataGridView.Rows[i].Cells["entryCostColumn"].Value; // takes the values from the cell - var so it can take different data types
+                if (cellValue != null && double.TryParse(cellValue.ToString(), out double cellValueDouble)) //This loop makes sure the entry is valid, if not it skips the cell
+                {
+                    accumulatedTotal += cellValueDouble;
+                }
             }
             calcTotalTextBox.Text = accumulatedTotal.ToString("C", CultureInfo.CurrentCulture); // Assigns the value to the output box in currency 
         }
-
-        private void compareButton_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+
 }
