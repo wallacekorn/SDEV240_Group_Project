@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             openToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem1 = new ToolStripMenuItem();
@@ -50,7 +50,6 @@
             noteColumn = new DataGridViewTextBoxColumn();
             CalcTotal = new Button();
             calcTotalTextBox = new TextBox();
-            compareButton = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)theDataGridView).BeginInit();
             SuspendLayout();
@@ -65,7 +64,6 @@
             menuStrip1.Size = new Size(929, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip";
-            menuStrip1.ItemClicked += MenuStrip_ItemClicked;
             // 
             // openToolStripMenuItem
             // 
@@ -73,7 +71,6 @@
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.Size = new Size(37, 20);
             openToolStripMenuItem.Text = "File";
-            openToolStripMenuItem.Click += FileCategory_Click;
             // 
             // openToolStripMenuItem1
             // 
@@ -102,7 +99,6 @@
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             viewToolStripMenuItem.Size = new Size(44, 20);
             viewToolStripMenuItem.Text = "View";
-            viewToolStripMenuItem.Click += ViewCategory_Click;
             // 
             // fontToolStripMenuItem
             // 
@@ -125,14 +121,14 @@
             theDataGridView.BackgroundColor = SystemColors.Control;
             theDataGridView.ColumnHeadersHeight = 29;
             theDataGridView.Columns.AddRange(new DataGridViewColumn[] { Category, itemColumn, materialColumn, sizeColumn, quantColumn, unitCostColumn, entryCostColumn, noteColumn });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle6.Font = new Font("Georgia", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            theDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle3.Font = new Font("Georgia", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            theDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             theDataGridView.Location = new Point(33, 55);
             theDataGridView.Margin = new Padding(3, 2, 3, 2);
             theDataGridView.Name = "theDataGridView";
@@ -141,12 +137,11 @@
             theDataGridView.RowTemplate.Height = 29;
             theDataGridView.Size = new Size(864, 322);
             theDataGridView.TabIndex = 1;
-            theDataGridView.CellContentClick += DataGridView1_CellContentClick;
             // 
             // Category
             // 
-            dataGridViewCellStyle4.Font = new Font("Arial Narrow", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Category.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Font = new Font("Arial Narrow", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            Category.DefaultCellStyle = dataGridViewCellStyle1;
             Category.HeaderText = "Category";
             Category.MinimumWidth = 6;
             Category.Name = "Category";
@@ -183,8 +178,8 @@
             // 
             // entryCostColumn
             // 
-            dataGridViewCellStyle5.BackColor = Color.Snow;
-            entryCostColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.BackColor = Color.Snow;
+            entryCostColumn.DefaultCellStyle = dataGridViewCellStyle2;
             entryCostColumn.HeaderText = "Cost";
             entryCostColumn.MinimumWidth = 6;
             entryCostColumn.Name = "entryCostColumn";
@@ -215,23 +210,11 @@
             calcTotalTextBox.Size = new Size(100, 23);
             calcTotalTextBox.TabIndex = 4;
             // 
-            // compareButton
-            // 
-            compareButton.Location = new Point(45, 396);
-            compareButton.Margin = new Padding(3, 2, 3, 2);
-            compareButton.Name = "compareButton";
-            compareButton.Size = new Size(82, 22);
-            compareButton.TabIndex = 6;
-            compareButton.Text = "Compare";
-            compareButton.UseVisualStyleBackColor = true;
-            compareButton.Click += compareButton_Click;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(929, 439);
-            Controls.Add(compareButton);
             Controls.Add(calcTotalTextBox);
             Controls.Add(CalcTotal);
             Controls.Add(theDataGridView);
@@ -240,7 +223,6 @@
             Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             Text = "Materials List Estimator";
-            Load += MainForm_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)theDataGridView).EndInit();
@@ -260,7 +242,6 @@
         private DataGridView theDataGridView;
         private Button CalcTotal;
         private TextBox calcTotalTextBox;
-        private Button compareButton;
         private DataGridViewTextBoxColumn Category;
         private DataGridViewTextBoxColumn itemColumn;
         private DataGridViewTextBoxColumn materialColumn;

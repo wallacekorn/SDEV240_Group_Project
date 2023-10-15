@@ -1,11 +1,14 @@
 /*
-Still need to add header comments
-
-
+    Group: Group 2
+    Date: 10/14/2023
+    Program Title: Group Project - Materials List Estimator
+    Purpose: Inputs data from the user for building materials for houses. 
+    Calculates the total cost of the list, on button press. 
+    Also can save entered data into a CSV file, change the font, enter darkmode, 
+    and clear the datagridview using included form functionality. 
 */
+
 using System.Globalization;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
 
 
 namespace Materials_List_Estimator
@@ -15,29 +18,6 @@ namespace Materials_List_Estimator
         public MainForm()
         {
             InitializeComponent();
-        }
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FileCategory_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void ViewCategory_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MenuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void OpenFile_Click(object sender, EventArgs e)
@@ -173,11 +153,6 @@ namespace Materials_List_Estimator
                 accumulatedTotal += Convert.ToDouble(theDataGridView.Rows[i].Cells["entryCostColumn"].Value);
             }
             calcTotalTextBox.Text = accumulatedTotal.ToString("C", CultureInfo.CurrentCulture); // Assigns the value to the output box in currency 
-        }
-
-        private void compareButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
