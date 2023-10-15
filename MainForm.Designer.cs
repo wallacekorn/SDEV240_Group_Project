@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             openToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem1 = new ToolStripMenuItem();
@@ -40,9 +40,6 @@
             fontToolStripMenuItem = new ToolStripMenuItem();
             darkModeLightModeToolStripMenuItem = new ToolStripMenuItem();
             theDataGridView = new DataGridView();
-            button2 = new Button();
-            calcTotalTextBox = new TextBox();
-            button4 = new Button();
             Category = new DataGridViewTextBoxColumn();
             itemColumn = new DataGridViewTextBoxColumn();
             materialColumn = new DataGridViewTextBoxColumn();
@@ -51,6 +48,9 @@
             unitCostColumn = new DataGridViewTextBoxColumn();
             entryCostColumn = new DataGridViewTextBoxColumn();
             noteColumn = new DataGridViewTextBoxColumn();
+            CalcTotal = new Button();
+            calcTotalTextBox = new TextBox();
+            compareButton = new Button();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)theDataGridView).BeginInit();
             SuspendLayout();
@@ -61,8 +61,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { openToolStripMenuItem, viewToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new Padding(6, 3, 0, 3);
-            menuStrip1.Size = new Size(1062, 30);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(929, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip";
             menuStrip1.ItemClicked += MenuStrip_ItemClicked;
@@ -71,28 +71,28 @@
             // 
             openToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openToolStripMenuItem1, saveToolStripMenuItem, clearToolStripMenuItem });
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(46, 24);
+            openToolStripMenuItem.Size = new Size(37, 20);
             openToolStripMenuItem.Text = "File";
             openToolStripMenuItem.Click += FileCategory_Click;
             // 
             // openToolStripMenuItem1
             // 
             openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            openToolStripMenuItem1.Size = new Size(128, 26);
+            openToolStripMenuItem1.Size = new Size(180, 22);
             openToolStripMenuItem1.Text = "Open";
             openToolStripMenuItem1.Click += OpenFile_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(128, 26);
+            saveToolStripMenuItem.Size = new Size(180, 22);
             saveToolStripMenuItem.Text = "Save";
             saveToolStripMenuItem.Click += SaveFile_Click;
             // 
             // clearToolStripMenuItem
             // 
             clearToolStripMenuItem.Name = "clearToolStripMenuItem";
-            clearToolStripMenuItem.Size = new Size(128, 26);
+            clearToolStripMenuItem.Size = new Size(180, 22);
             clearToolStripMenuItem.Text = "Clear";
             clearToolStripMenuItem.Click += ClearGrid_Click;
             // 
@@ -100,23 +100,21 @@
             // 
             viewToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { fontToolStripMenuItem, darkModeLightModeToolStripMenuItem });
             viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            viewToolStripMenuItem.Size = new Size(55, 24);
+            viewToolStripMenuItem.Size = new Size(44, 20);
             viewToolStripMenuItem.Text = "View";
             viewToolStripMenuItem.Click += ViewCategory_Click;
             // 
             // fontToolStripMenuItem
             // 
             fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            fontToolStripMenuItem.Size = new Size(216, 26);
+            fontToolStripMenuItem.Size = new Size(170, 22);
             fontToolStripMenuItem.Text = "Font";
             fontToolStripMenuItem.Click += FontMenuSubgroup_Click;
             // 
             // darkModeLightModeToolStripMenuItem
             // 
-            darkModeLightModeToolStripMenuItem.Checked = true;
-            darkModeLightModeToolStripMenuItem.CheckState = CheckState.Checked;
             darkModeLightModeToolStripMenuItem.Name = "darkModeLightModeToolStripMenuItem";
-            darkModeLightModeToolStripMenuItem.Size = new Size(216, 26);
+            darkModeLightModeToolStripMenuItem.Size = new Size(170, 22);
             darkModeLightModeToolStripMenuItem.Text = "Dark Mode Toggle";
             darkModeLightModeToolStripMenuItem.Click += DarkModeToggle_Click;
             // 
@@ -124,55 +122,31 @@
             // 
             theDataGridView.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             theDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            theDataGridView.BackgroundColor = SystemColors.Control;
             theDataGridView.ColumnHeadersHeight = 29;
             theDataGridView.Columns.AddRange(new DataGridViewColumn[] { Category, itemColumn, materialColumn, sizeColumn, quantColumn, unitCostColumn, entryCostColumn, noteColumn });
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle3.Font = new Font("Georgia", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            theDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            theDataGridView.Location = new Point(38, 73);
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle6.Font = new Font("Georgia", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            theDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+            theDataGridView.Location = new Point(33, 55);
+            theDataGridView.Margin = new Padding(3, 2, 3, 2);
             theDataGridView.Name = "theDataGridView";
             theDataGridView.RowHeadersVisible = false;
             theDataGridView.RowHeadersWidth = 51;
             theDataGridView.RowTemplate.Height = 29;
-            theDataGridView.Size = new Size(988, 429);
+            theDataGridView.Size = new Size(864, 322);
             theDataGridView.TabIndex = 1;
             theDataGridView.CellContentClick += DataGridView1_CellContentClick;
             // 
-            // button2
-            // 
-            button2.Location = new Point(646, 520);
-            button2.Name = "button2";
-            button2.Size = new Size(123, 44);
-            button2.TabIndex = 3;
-            button2.Text = "Calculate Total";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += CalcTotal_Click;
-            // 
-            // calcTotalTextBox
-            // 
-            calcTotalTextBox.Location = new Point(786, 529);
-            calcTotalTextBox.Name = "calcTotalTextBox";
-            calcTotalTextBox.Size = new Size(114, 27);
-            calcTotalTextBox.TabIndex = 4;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(51, 528);
-            button4.Name = "button4";
-            button4.Size = new Size(94, 29);
-            button4.TabIndex = 6;
-            button4.Text = "Compare";
-            button4.UseVisualStyleBackColor = true;
-            // 
             // Category
             // 
-            dataGridViewCellStyle1.Font = new Font("Arial Narrow", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            Category.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new Font("Arial Narrow", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            Category.DefaultCellStyle = dataGridViewCellStyle4;
             Category.HeaderText = "Category";
             Category.MinimumWidth = 6;
             Category.Name = "Category";
@@ -209,8 +183,8 @@
             // 
             // entryCostColumn
             // 
-            dataGridViewCellStyle2.BackColor = Color.Snow;
-            entryCostColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = Color.Snow;
+            entryCostColumn.DefaultCellStyle = dataGridViewCellStyle5;
             entryCostColumn.HeaderText = "Cost";
             entryCostColumn.MinimumWidth = 6;
             entryCostColumn.Name = "entryCostColumn";
@@ -221,17 +195,49 @@
             noteColumn.MinimumWidth = 6;
             noteColumn.Name = "noteColumn";
             // 
+            // CalcTotal
+            // 
+            CalcTotal.BackColor = SystemColors.Control;
+            CalcTotal.Location = new Point(565, 390);
+            CalcTotal.Margin = new Padding(3, 2, 3, 2);
+            CalcTotal.Name = "CalcTotal";
+            CalcTotal.Size = new Size(108, 33);
+            CalcTotal.TabIndex = 3;
+            CalcTotal.Text = "Calculate Total";
+            CalcTotal.UseVisualStyleBackColor = true;
+            CalcTotal.Click += CalcTotal_Click;
+            // 
+            // calcTotalTextBox
+            // 
+            calcTotalTextBox.Location = new Point(688, 397);
+            calcTotalTextBox.Margin = new Padding(3, 2, 3, 2);
+            calcTotalTextBox.Name = "calcTotalTextBox";
+            calcTotalTextBox.Size = new Size(100, 23);
+            calcTotalTextBox.TabIndex = 4;
+            // 
+            // compareButton
+            // 
+            compareButton.Location = new Point(45, 396);
+            compareButton.Margin = new Padding(3, 2, 3, 2);
+            compareButton.Name = "compareButton";
+            compareButton.Size = new Size(82, 22);
+            compareButton.TabIndex = 6;
+            compareButton.Text = "Compare";
+            compareButton.UseVisualStyleBackColor = true;
+            compareButton.Click += compareButton_Click;
+            // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1062, 585);
-            Controls.Add(button4);
+            ClientSize = new Size(929, 439);
+            Controls.Add(compareButton);
             Controls.Add(calcTotalTextBox);
-            Controls.Add(button2);
+            Controls.Add(CalcTotal);
             Controls.Add(theDataGridView);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             Text = "Materials List Estimator";
             Load += MainForm_Load;
@@ -251,11 +257,10 @@
         private ToolStripMenuItem clearToolStripMenuItem;
         private ToolStripMenuItem viewToolStripMenuItem;
         private ToolStripMenuItem fontToolStripMenuItem;
-        private ToolStripMenuItem darkModeLightModeToolStripMenuItem;
         private DataGridView theDataGridView;
-        private Button button2;
+        private Button CalcTotal;
         private TextBox calcTotalTextBox;
-        private Button button4;
+        private Button compareButton;
         private DataGridViewTextBoxColumn Category;
         private DataGridViewTextBoxColumn itemColumn;
         private DataGridViewTextBoxColumn materialColumn;
@@ -264,5 +269,6 @@
         private DataGridViewTextBoxColumn unitCostColumn;
         private DataGridViewTextBoxColumn entryCostColumn;
         private DataGridViewTextBoxColumn noteColumn;
+        private ToolStripMenuItem darkModeLightModeToolStripMenuItem;
     }
 }
