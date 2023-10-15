@@ -108,7 +108,7 @@ namespace Materials_List_Estimator
             // This loop processes the headers of the datagridview columns
             for (int i = 0; i < theDataGridView.Columns.Count; ++i)
             {
-                streamWriter.Write(theDataGridView.Columns[i].HeaderText); // Writes the column headers to the stream
+                streamWriter.Write("\"" + theDataGridView.Columns[i].HeaderText + "\""); // Writes the column headers to the stream in a string so any commas get picked up
                 if (i != theDataGridView.Columns.Count - 1) // this prevents the last column from getting a comma
                 {
                     streamWriter.Write(","); // adds comma delimiter
@@ -124,7 +124,7 @@ namespace Materials_List_Estimator
                     continue;
                 for (int iCells = 0; iCells < theDataGridView.Columns.Count; ++iCells)
                 {
-                    streamWriter.Write(theDataGridView.Rows[iRows].Cells[iCells].Value);
+                    streamWriter.Write("\"" + Convert.ToString(theDataGridView.Rows[iRows].Cells[iCells].Value) + "\""); // in a string to make sure comma data is captured
                     if (iCells != theDataGridView.Columns.Count - 1) // this prevents the last column from getting a comma
                     {
                         streamWriter.Write(","); // adds comma delimiter
