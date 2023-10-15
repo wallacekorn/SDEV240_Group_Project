@@ -1,0 +1,17 @@
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\bin\Debug\net7.0-windows\Materials List Estimator.exe
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\bin\Debug\net7.0-windows\Materials List Estimator.deps.json
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\bin\Debug\net7.0-windows\Materials List Estimator.runtimeconfig.json
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\bin\Debug\net7.0-windows\Materials List Estimator.dll
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\bin\Debug\net7.0-windows\Materials List Estimator.pdb
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials_List_Estimator.MainForm.resources
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials_List_Estimator.Properties.Resources.resources
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.csproj.GenerateResource.cache
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.AssemblyInfoInputs.cache
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.AssemblyInfo.cs
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.csproj.CoreCompileInputs.cache
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.dll
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\refint\Materials List Estimator.dll
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.pdb
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\Materials List Estimator.genruntimeconfig.cache
+C:\Users\gabes\Downloads\SDEV240_Group_Project-main\obj\Debug\net7.0-windows\ref\Materials List Estimator.dll
