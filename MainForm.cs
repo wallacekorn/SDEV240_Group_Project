@@ -40,11 +40,6 @@ namespace Materials_List_Estimator
 
         }
 
-        private void compareButton_Click(object sender, EventArgs e) 
-        { 
-        
-        }
-
         private void OpenFile_Click(object sender, EventArgs e)
         {
             OpenFileDialog anOpenFileDialog = new OpenFileDialog(); // opens the 'select a file' window
@@ -84,21 +79,54 @@ namespace Materials_List_Estimator
 
         private void FontMenuSubgroup_Click(object sender, EventArgs e)
         {
-            FontDialog aFontDialog = new FontDialog(); // Creates/Opens the font selection menu
+            FontDialog fontDialog = new FontDialog();
 
-            if (aFontDialog.ShowDialog() != DialogResult.Cancel)  // If operation is not cancelled
+            if (fontDialog.ShowDialog() != DialogResult.Cancel)
             {
-                this.Font = aFontDialog.Font; // then it assigns the font to the form
+                // Get the selected font
+                Font selectedFont = fontDialog.Font;
 
+                // Set constraints for the font size
+                float minFontSize = 8.0f;
+                float maxFontSize = 14.0f;
 
-                //need to add constraints to change the font to a maximum number so the layout doesnt break - or remove the option
+                // Apply constraints to font size
+                float constrainedFontSize = Math.Max(minFontSize, Math.Min(selectedFont.Size, maxFontSize));
+                selectedFont = new Font(selectedFont.FontFamily, constrainedFontSize, selectedFont.Style);
+
+                this.Font = selectedFont;
             }
-
         }
+
+
+        private bool isDarkMode = false; // Initialize with light mode
+
         private void DarkModeToggle_Click(object sender, EventArgs e)
         {
-
+            isDarkMode = !isDarkMode;
+            ApplyDarkMode();
         }
+
+        private void ApplyDarkMode()
+        {
+            if (isDarkMode)
+            {
+                // Dark Mode
+                this.BackColor = Color.FromArgb(80, 80, 80); // Set the background color to a dark shade
+                this.ForeColor = Color.White; // Set text and foreground color to a light color
+                theDataGridView.BackgroundColor = Color.FromArgb(50, 50, 50);
+                theDataGridView.ForeColor = Color.LightSlateGray;
+            }
+            else
+            {
+                // Light Mode
+                this.BackColor = Color.White; // Set the background color back to light
+                this.ForeColor = Color.Black; // Set text and foreground color back to dark
+                theDataGridView.BackgroundColor = this.BackColor;
+                theDataGridView.ForeColor = this.ForeColor;
+            }
+        }
+
 
         public static void SaveToCSV(DataGridView theDataGridView, string fileName)
         {
@@ -108,7 +136,7 @@ namespace Materials_List_Estimator
             // This loop processes the headers of the datagridview columns
             for (int i = 0; i < theDataGridView.Columns.Count; ++i)
             {
-                streamWriter.Write("\"" + theDataGridView.Columns[i].HeaderText + "\""); // Writes the column headers to the stream in a string so any commas get picked up
+                streamWriter.Write(theDataGridView.Columns[i].HeaderText); // Writes the column headers to the stream
                 if (i != theDataGridView.Columns.Count - 1) // this prevents the last column from getting a comma
                 {
                     streamWriter.Write(","); // adds comma delimiter
@@ -124,7 +152,7 @@ namespace Materials_List_Estimator
                     continue;
                 for (int iCells = 0; iCells < theDataGridView.Columns.Count; ++iCells)
                 {
-                    streamWriter.Write("\"" + Convert.ToString(theDataGridView.Rows[iRows].Cells[iCells].Value) + "\""); // in a string to make sure comma data is captured
+                    streamWriter.Write(theDataGridView.Rows[iRows].Cells[iCells].Value);
                     if (iCells != theDataGridView.Columns.Count - 1) // this prevents the last column from getting a comma
                     {
                         streamWriter.Write(","); // adds comma delimiter
@@ -142,14 +170,14 @@ namespace Materials_List_Estimator
             double accumulatedTotal = 0;
             for (int i = 0; i < theDataGridView.Rows.Count; ++i)
             {
-                var cellValue = theDataGridView.Rows[i].Cells["entryCostColumn"].Value; // takes the values from the cell - var so it can take different data types
-                if (cellValue != null && double.TryParse(cellValue.ToString(), out double cellValueDouble)) //This loop makes sure the entry is valid, if not it skips the cell
-                {
-                    accumulatedTotal += cellValueDouble;
-                }
+                accumulatedTotal += Convert.ToDouble(theDataGridView.Rows[i].Cells["entryCostColumn"].Value);
             }
             calcTotalTextBox.Text = accumulatedTotal.ToString("C", CultureInfo.CurrentCulture); // Assigns the value to the output box in currency 
         }
-    }
 
+        private void compareButton_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
